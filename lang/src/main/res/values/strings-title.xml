@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_home">主页</string>
+    <string name="title_group">组</string>
+    <string name="title_contact">消息</string>
+</resources>
