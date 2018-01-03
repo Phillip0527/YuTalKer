@@ -85,7 +85,6 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
     @Override
     protected void initData() {
         super.initData();
-
         // 从底部导航中接管我的Menu，然后进行手动触发第一次点击
         Menu menu = mNavigation.getMenu();
         // 触发首次选中Home
@@ -116,8 +115,6 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
     }
 
 
-    // 记录上一个点击的TabId
-    private int preTabId;
 
     /**
      * NavHelper 处理后回调的方法
@@ -157,10 +154,10 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
                 .setInterpolator(new AnticipateOvershootInterpolator(1))
                 .setDuration(duration)
                 .start();
-
-
-        preTabId = newTab.extra;
     }
 
-
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
 }
