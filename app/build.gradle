@@ -5,7 +5,7 @@ android {
     defaultConfig {
         applicationId "com.im.yutalker.push"
         minSdkVersion 22
-        targetSdkVersion 22 //小于23就可以默认开启权限
+        targetSdkVersion 26 //小于23就可以默认开启权限
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

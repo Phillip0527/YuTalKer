@@ -9,10 +9,10 @@
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
-        android:elevation="@dimen/len_2"
-        android:outlineProvider="bounds"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/actionBarWithStatusBarSize">
+        android:layout_height="@dimen/actionBarWithStatusBarSize"
+        android:elevation="@dimen/len_2"
+        android:outlineProvider="bounds">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -26,6 +26,7 @@
                 android:layout_width="@dimen/len_40"
                 android:layout_height="@dimen/len_40"
                 android:layout_margin="@dimen/len_4"
+                android:clickable="true"
                 android:foreground="@drawable/ic_touch_menu"
                 android:padding="@dimen/len_4"
                 android:scaleType="centerCrop"
@@ -38,7 +39,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="@string/app_name"
-                android:textAppearance="@style/TextAppearance.Title"/>
+                android:textAppearance="@style/TextAppearance.Title" />
 
             <ImageView
                 android:id="@+id/im_search"
@@ -46,6 +47,7 @@
                 android:layout_height="@dimen/len_40"
                 android:layout_gravity="end|center_vertical"
                 android:layout_margin="@dimen/len_4"
+                android:clickable="true"
                 android:contentDescription="@string/app_name"
                 android:foreground="@drawable/ic_touch_menu"
                 android:padding="@dimen/len_10"
@@ -68,18 +70,17 @@
         android:id="@+id/btn_action"
         android:layout_width="@dimen/len_52"
         android:layout_height="@dimen/len_52"
-        android:translationY="@dimen/len_76"
         android:layout_marginBottom="@dimen/len_68"
         android:layout_marginEnd="@dimen/len_16"
         android:padding="@dimen/len_20"
         android:src="@drawable/ic_group_add"
         android:tint="@color/white"
+        android:translationY="@dimen/len_76"
         app:gBackgroundColor="@color/colorAccent"
         app:layout_anchor="@id/lay_container"
         app:layout_anchorGravity="bottom|end" />
 
     <android.support.design.widget.BottomNavigationView
-        tools:visibility="gone"
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="@dimen/len_52"
@@ -88,11 +89,10 @@
         android:elevation="@dimen/len_4"
         android:outlineProvider="bounds"
         android:translationZ="@dimen/len_8"
-        app:menu="@menu/navigation_items"
         app:itemIconTint="@color/text_nav"
-        app:itemTextColor="@color/text_nav"/>
-
-
+        app:itemTextColor="@color/text_nav"
+        app:menu="@menu/navigation_items"
+        tools:visibility="gone" />
 
 
 </android.support.design.widget.CoordinatorLayout>

@@ -8,10 +8,10 @@ import butterknife.BindView;
 
 
 public class ActiveFragment extends Fragment {
-    private static final int REQUEST_EXTERNAL_STORAGE = 1;// 权限标识
-    private static String[] PERMISSIONS_STORAGE = {
-            "android.permission.READ_EXTERNAL_STORAGE",
-            "android.permission.WRITE_EXTERNAL_STORAGE"}; // 需要开启的危险权限
+//    private static final int REQUEST_EXTERNAL_STORAGE = 1;// 权限标识
+//    private static String[] PERMISSIONS_STORAGE = {
+//            "android.permission.READ_EXTERNAL_STORAGE",
+//            "android.permission.WRITE_EXTERNAL_STORAGE"}; // 需要开启的危险权限
 
     @BindView(R.id.galleyView)
     GalleyView mGalley;

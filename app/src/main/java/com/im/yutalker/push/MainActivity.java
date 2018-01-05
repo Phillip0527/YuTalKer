@@ -130,7 +130,7 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
         // 对浮动按钮进行隐藏与显示的动画
         float transY = 0;
         float rotation = 0;
-        int duration = 580;
+        int duration = 480;
         if (Objects.equals(newTab.extra, R.string.title_home)) {
             // 主界面时隐藏
             transY = Ui.dipToPx(getResources(), 76);

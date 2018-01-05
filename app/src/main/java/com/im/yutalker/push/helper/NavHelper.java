@@ -144,6 +144,16 @@ public class NavHelper<T> {
     }
 
     /**
+     * 定义事件处理完成后的回调接口
+     *
+     * @param <T>
+     */
+    public interface OnTabChangedListener<T> {
+
+        void onTabChanged(Tab<T> newTab, Tab<T> oldTab);
+    }
+
+    /**
      * 我们的所有的Tab基础属性
      *
      * @param <T> 泛型的额外参数
@@ -162,14 +172,5 @@ public class NavHelper<T> {
         // 内部缓存的对应的Fragment
         // Package权限，外部无法使用
         Fragment fragment;
-    }
-
-    /**
-     * 定义事件处理完成后的回调接口
-     *
-     * @param <T>
-     */
-    public interface OnTabChangedListener<T> {
-        void onTabChanged(Tab<T> newTab, Tab<T> oldTab);
     }
 }
