@@ -1,7 +1,7 @@
 package com.im.yutalker.push.fragments.main;
 
 import com.im.yutalker.common.app.Fragment;
-import com.im.yutalker.common.widget.GalleyView;
+import com.im.yutalker.common.widget.GalleryView;
 import com.im.yutalker.push.R;
 
 import butterknife.BindView;
@@ -13,8 +13,8 @@ public class ActiveFragment extends Fragment {
 //            "android.permission.READ_EXTERNAL_STORAGE",
 //            "android.permission.WRITE_EXTERNAL_STORAGE"}; // 需要开启的危险权限
 
-    @BindView(R.id.galleyView)
-    GalleyView mGalley;
+    @BindView(R.id.galleryView)
+    GalleryView mGalley;
 
     public ActiveFragment() {
         // Required empty public constructor
@@ -29,7 +29,7 @@ public class ActiveFragment extends Fragment {
     protected void initData() {
         super.initData();
 
-        mGalley.setup(getLoaderManager(), new GalleyView.SelectedChangeListener() {
+        mGalley.setup(getLoaderManager(), new GalleryView.SelectedChangeListener() {
             @Override
             public void onSelectedCountChanged(int count) {
 

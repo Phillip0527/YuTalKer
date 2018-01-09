@@ -1,10 +1,13 @@
 package com.im.yutalker.common.app;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import butterknife.ButterKnife;
@@ -37,7 +40,14 @@ public abstract class Activity extends AppCompatActivity {
      * 初始化窗口
      */
     protected void initWidows(){
-
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+            try {
+                Class decorViewClazz = Class.forName("com.android.internal.policy.DecorView");
+                Field field = decorViewClazz.getDeclaredField("mSemiTransparentStatusBarColor");
+                field.setAccessible(true);
+                field.setInt(getWindow().getDecorView(), Color.TRANSPARENT);  //改为透明
+            } catch (Exception e) {}
+        }
     }
 
     /**

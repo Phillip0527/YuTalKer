@@ -3,4 +3,6 @@
     <string name="title_home">主页</string>
     <string name="title_group">组</string>
     <string name="title_contact">消息</string>
+
+    <string name="title_select_gallery">选择照片</string>
 </resources>

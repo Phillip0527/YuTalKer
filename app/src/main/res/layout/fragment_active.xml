@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     tools:context="com.im.yutalker.push.fragments.main.ActiveFragment">
 
-    <com.im.yutalker.common.widget.GalleyView
-        android:id="@+id/galleyView"
+    <com.im.yutalker.common.widget.GalleryView
+        android:id="@+id/galleryView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="1dp"/>

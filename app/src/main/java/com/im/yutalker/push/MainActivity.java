@@ -15,6 +15,7 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.im.yutalker.common.app.Activity;
 import com.im.yutalker.common.widget.PortraitView;
+import com.im.yutalker.push.activities.AccountActivity;
 import com.im.yutalker.push.fragments.main.ActiveFragment;
 import com.im.yutalker.push.fragments.main.ContactFragment;
 import com.im.yutalker.push.fragments.main.GroupFragment;
@@ -98,7 +99,7 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
 
     @OnClick(R.id.btn_action)
     void onActionClick() {
-
+        AccountActivity.show(this);
     }
 
     /**
@@ -156,8 +157,5 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
                 .start();
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
+
 }
