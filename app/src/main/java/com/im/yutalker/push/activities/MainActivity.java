@@ -1,5 +1,7 @@
-package com.im.yutalker.push;
+package com.im.yutalker.push.activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.Menu;
@@ -15,7 +17,9 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.im.yutalker.common.app.Activity;
 import com.im.yutalker.common.widget.PortraitView;
+import com.im.yutalker.push.R;
 import com.im.yutalker.push.activities.AccountActivity;
+import com.im.yutalker.push.fragments.assist.PermissionsFragment;
 import com.im.yutalker.push.fragments.main.ActiveFragment;
 import com.im.yutalker.push.fragments.main.ContactFragment;
 import com.im.yutalker.push.fragments.main.GroupFragment;
@@ -51,6 +55,14 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
     FloatActionButton mAction;
 
     private NavHelper<Integer> mNavHelper;
+
+    /**
+     *  MainActivity显示的入口
+     * @param context 上下文
+     */
+    public static void show(Context context) {
+        context.startActivity(new Intent(context, MainActivity.class));
+    }
 
     @Override
     protected int getContentLayoutId() {
@@ -114,7 +126,6 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
         // 转接事件流到工具类中
         return mNavHelper.performClickMenu(item.getItemId());
     }
-
 
 
     /**

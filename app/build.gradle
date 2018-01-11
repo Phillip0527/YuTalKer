@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.im.yutalker.push"
-        minSdkVersion 22
+        minSdkVersion 23
         targetSdkVersion 26 //小于23就可以默认开启权限
         versionCode 1
         versionName "1.0"
@@ -24,21 +24,20 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     testImplementation 'junit:junit:4.12'
+
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation project(':common')
-
-
     implementation "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
     implementation "com.android.support:design:$rootProject.ext.supportVersion"
-
     compile "net.qiujuer.genius:ui:$rootProject.ext.geniusVersion"
     compile "net.qiujuer.genius:res:$rootProject.ext.geniusVersion"
-
     compile "de.hdodenhof:circleimageview:$rootProject.ext.circleimageviewVersion"
     compile "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
-
+    compile "com.yalantis:ucrop:$rootProject.ext.ucropVersion"
+    compile "pub.devrel:easypermissions:$rootProject.ext.easyPMVersion"
     compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
 
-    compile "com.yalantis:ucrop:$rootProject.ext.ucropVersion"
+    implementation project(':factory')
+
+    compile project(path: ':common')
 }

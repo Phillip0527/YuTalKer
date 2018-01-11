@@ -5,4 +5,8 @@
     <string name="title_contact">消息</string>
 
     <string name="title_select_gallery">选择照片</string>
+
+    <string name="title_assist_permissions">授予权限</string>
+    <string name="app_rationale_assist_permissions">是否开启“禹聊APP”读写权限、语音权限？（如果取消，请到系统中手动开启权限，否则不可使用此软件）</string>
+    <string name="system_rationale_assist_permissions">是否跳转到系统中，手动开启“禹聊APP”所需要的权限？</string>
 </resources>

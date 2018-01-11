@@ -14,6 +14,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Phillip on 2017/12/23.
+ *
  */
 
 public abstract class Activity extends AppCompatActivity {

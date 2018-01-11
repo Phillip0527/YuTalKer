@@ -4,11 +4,14 @@ package com.im.yutalker.push.fragments.account;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.util.Log;
 
 import com.bumptech.glide.Glide;
 import com.im.yutalker.common.app.Application;
 import com.im.yutalker.common.app.Fragment;
 import com.im.yutalker.common.widget.PortraitView;
+import com.im.yutalker.factory.Factory;
+import com.im.yutalker.factory.com.UploadHelper;
 import com.im.yutalker.push.R;
 import com.im.yutalker.push.fragments.media.GalleryFragment;
 import com.yalantis.ucrop.UCrop;
@@ -90,14 +93,26 @@ public class UpdateInfoFragment extends Fragment {
 
     /**
      * 加载到当前的头像中
+     *
      * @param uri Uri
      */
-    private void LoadPortrait(Uri uri){
+    private void LoadPortrait(Uri uri) {
         Glide.with(this)
                 .load(uri)
                 .asBitmap()
                 .centerCrop()
                 .into(portraitView);
+
+        // 拿到本地文件的地址
+        final String localPath = uri.getPath();
+        Log.e("TAG", "localPath:" + localPath);
+        Factory.runOnAsync(new Runnable() {
+            @Override
+            public void run() {
+                String url=UploadHelper.uploadPortrait(localPath);
+                Log.e("TAG", "url:" + url);
+            }
+        });
     }
 
 }

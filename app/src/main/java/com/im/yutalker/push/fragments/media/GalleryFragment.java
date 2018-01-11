@@ -38,8 +38,9 @@ public class GalleryFragment extends BottomSheetDialogFragment
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        // 先使用官方给的默认的
+        // 官方给的默认的
 //        return new BottomSheetDialog(getContext());
+        // 返回自定义的BottomSheetDialog
         return new TransStatusBottomSheetDialog(getContext());
     }
 
@@ -94,9 +95,9 @@ public class GalleryFragment extends BottomSheetDialogFragment
     }
 
     /**
-     * 自定义的BottomSheetDialog
+     * 自定义的BottomSheetDialog 为了解决状态栏变黑的问题
      */
-    private static class TransStatusBottomSheetDialog extends BottomSheetDialog {
+    public static class TransStatusBottomSheetDialog extends BottomSheetDialog {
 
         public TransStatusBottomSheetDialog(@NonNull Context context) {
             super(context);
