@@ -3,10 +3,12 @@
     <!--基础颜色-->
     <color name="colorPrimary">#31373d</color>
     <color name="colorPrimaryDark">#31373d</color>
-    <color name="colorAccent">#1572fc</color>
+    <color name="colorAccent">#03a9f4</color>
     <color name="colorLight">@color/white</color>
     <color name="colorDark">@color/black</color>
-    <color name="colorAccentAlpha">#801572fc</color>
+    <color name="colorAccentAlpha">#8003a9f4</color>
+    <color name="colorAccentAlpha30">#4D03a9f4</color>
+    <color name="colorAccentAlpha0">#0003a9f4</color>
     <!--背景颜色-->
     <color name="windowsBackground">#f7f7f7</color>
     <color name="windowsBackgroundLight">#f8f8f8</color>
@@ -23,4 +25,8 @@
     <color name="maskChatHeader">@color/black_alpha_48</color>
     <!--导航栏icon遮罩颜色-->
     <color name="navIconTintLight">@color/white_alpha_240</color>
+    <!--透明色-->
+    <color name="blue_alpha_80">#5003a9f4</color>
+    <color name="blue_alpha_224">#e003a9f4</color>
+    <color name="green_alpha_80">#5000bcd4</color>
 </resources>
