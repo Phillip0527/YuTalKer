@@ -5,6 +5,7 @@ import android.content.Context;
 import com.im.yutalker.factory.presenter.BaseContract;
 
 /**
+ *
  * Created by Phillip on 2018/1/16.
  */
 

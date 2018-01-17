@@ -83,16 +83,16 @@
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/len_52"
+        android:layout_height="@dimen/len_56"
         android:layout_gravity="bottom"
         android:background="@color/white"
         android:elevation="@dimen/len_4"
         android:outlineProvider="bounds"
         android:translationZ="@dimen/len_8"
+        android:theme="@style/BottomNavigationView"
         app:itemIconTint="@color/text_nav"
         app:itemTextColor="@color/text_nav"
-        app:menu="@menu/navigation_items"
-        tools:visibility="gone" />
+        app:menu="@menu/navigation_items" />
 
 
 </android.support.design.widget.CoordinatorLayout>

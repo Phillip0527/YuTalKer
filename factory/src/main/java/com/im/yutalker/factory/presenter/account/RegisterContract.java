@@ -4,6 +4,7 @@ package com.im.yutalker.factory.presenter.account;
 import com.im.yutalker.factory.presenter.BaseContract;
 
 /**
+ *
  * Created by Phillip on 2018/1/16.
  */
 

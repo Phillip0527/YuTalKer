@@ -38,7 +38,7 @@
                 android:layout_marginRight="@dimen/len_8"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_phone"
-                android:tint="@color/colorAccent" />
+                android:tint="@color/iconAccent" />
 
             <EditText
                 android:id="@+id/edit_phone"
@@ -83,7 +83,7 @@
                 android:layout_marginRight="@dimen/len_8"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_key"
-                android:tint="@color/colorAccent" />
+                android:tint="@color/iconAccent" />
 
             <EditText
                 android:id="@+id/edit_password"
@@ -128,7 +128,7 @@
                 android:layout_marginRight="@dimen/len_8"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_person"
-                android:tint="@color/colorAccent" />
+                android:tint="@color/iconAccent" />
 
             <EditText
                 android:id="@+id/edit_name"
@@ -206,6 +206,7 @@
             app:gTouchEffect="ripple" />
 
         <net.qiujuer.genius.ui.widget.Loading
+            android:id="@+id/loading"
             android:layout_width="@dimen/len_36"
             android:layout_height="@dimen/len_36"
             android:layout_gravity="center"

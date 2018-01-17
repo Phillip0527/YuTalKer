@@ -13,4 +13,8 @@
         <!--设置底部导航颜色-->
         <item name="android:navigationBarColor">@color/colorAccent</item>
     </style>
+
+    <style name="BottomNavigationView" parent="Theme.AppCompat">
+        <item name="colorControlHighlight">@color/BottomNavigationViewTextSecond</item>
+    </style>
 </resources>

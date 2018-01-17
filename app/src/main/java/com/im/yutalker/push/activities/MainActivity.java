@@ -12,14 +12,13 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.im.yutalker.common.app.Activity;
 import com.im.yutalker.common.widget.PortraitView;
 import com.im.yutalker.push.R;
-import com.im.yutalker.push.activities.AccountActivity;
-import com.im.yutalker.push.fragments.assist.PermissionsFragment;
 import com.im.yutalker.push.fragments.main.ActiveFragment;
 import com.im.yutalker.push.fragments.main.ContactFragment;
 import com.im.yutalker.push.fragments.main.GroupFragment;
@@ -85,8 +84,9 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
         mNavigation.setOnNavigationItemSelectedListener(this);
 
         Glide.with(this)
-                .load(R.drawable.bg_src_morning)
+                .load(R.drawable.bg_appbar)
                 .centerCrop()
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(new ViewTarget<View, GlideDrawable>(mLayAppbar) {
                     @Override
                     public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {

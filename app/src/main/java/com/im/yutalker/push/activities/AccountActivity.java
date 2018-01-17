@@ -19,7 +19,6 @@ import com.im.yutalker.push.fragments.account.AccountTrigger;
 import com.im.yutalker.push.fragments.account.LoginFragment;
 import com.im.yutalker.push.fragments.account.RegisterFragment;
 
-import net.qiujuer.genius.ui.compat.UiCompat;
 
 import butterknife.BindView;
 
@@ -50,7 +49,7 @@ public class AccountActivity extends Activity implements AccountTrigger {
     protected void initWidget() {
         super.initWidget();
         // 初始化Fragment
-        mCurFragment = mLoginFragment = new LoginFragment();
+        mCurFragment = mLoginFragment = new RegisterFragment();
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.lay_container, mCurFragment)

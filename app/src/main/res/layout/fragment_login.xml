@@ -163,6 +163,7 @@
             app:gTouchEffect="ripple" />
 
         <net.qiujuer.genius.ui.widget.Loading
+            android:id="@+id/loading"
             android:layout_width="@dimen/len_36"
             android:layout_height="@dimen/len_36"
             android:layout_gravity="center"

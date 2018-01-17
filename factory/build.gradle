@@ -29,6 +29,11 @@ dependencies {
 
     compile "com.aliyun.dpa:oss-android-sdk:$rootProject.ext.ossVersion"
 
+    compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+
+    compile "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
+
     implementation project(':common')
 
     testImplementation 'junit:junit:4.12'

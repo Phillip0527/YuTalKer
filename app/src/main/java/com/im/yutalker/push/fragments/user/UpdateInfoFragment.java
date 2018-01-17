@@ -11,7 +11,7 @@ import com.im.yutalker.common.app.Application;
 import com.im.yutalker.common.app.Fragment;
 import com.im.yutalker.common.widget.PortraitView;
 import com.im.yutalker.factory.Factory;
-import com.im.yutalker.factory.com.UploadHelper;
+import com.im.yutalker.factory.net.UploadHelper;
 import com.im.yutalker.push.R;
 import com.im.yutalker.push.fragments.media.GalleryFragment;
 import com.yalantis.ucrop.UCrop;

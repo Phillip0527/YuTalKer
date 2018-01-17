@@ -27,7 +27,7 @@
     <string name="label_register">注册</string>
     <string name="label_password">密码</string>
     <string name="label_portrait_tips">选择你的专属头像</string>
-    <string name="label_name">昵称</string>
+    <string name="label_name">名称</string>
     <string name="label_desc_tips">用一句话介绍自己</string>
     <string name="label_sex_man">男</string>
     <string name="label_sex_woman">女</string>

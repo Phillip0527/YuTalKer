@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--基础颜色-->
-    <color name="colorPrimary">#31373d</color>
-    <color name="colorPrimaryDark">#31373d</color>
-    <color name="colorAccent">#03a9f4</color>
+    <color name="colorPrimary">@color/cyan_500</color>
+    <color name="colorPrimaryDark">@color/cyan_700</color>
+    <color name="colorAccent">@color/cyan_500</color>
     <color name="colorLight">@color/white</color>
     <color name="colorDark">@color/black</color>
-    <color name="colorAccentAlpha">#8003a9f4</color>
-    <color name="colorAccentAlpha30">#4D03a9f4</color>
-    <color name="colorAccentAlpha0">#0003a9f4</color>
+    <color name="colorAccentAlpha">#8000bcd4</color>
+    <color name="colorAccentAlpha30">#4D00bcd4</color>
     <!--背景颜色-->
     <color name="windowsBackground">#f7f7f7</color>
     <color name="windowsBackgroundLight">#f8f8f8</color>
@@ -18,6 +17,10 @@
     <color name="textAccent">@color/colorAccent</color>
     <color name="textLight">@color/colorLight</color>
     <color name="textDark">#202020</color>
+    <color name="BottomNavigationViewTextPrimary">#DE006064</color>
+    <color name="BottomNavigationViewTextSecond">#8A006064</color>
+    <color name="BottomNavigationViewTextThird">#42006064</color>
+
     <!--提示颜色-->
     <color name="alertNormal">#4ce275</color>
     <color name="alertImportant">#f98d2c</color>
@@ -25,8 +28,6 @@
     <color name="maskChatHeader">@color/black_alpha_48</color>
     <!--导航栏icon遮罩颜色-->
     <color name="navIconTintLight">@color/white_alpha_240</color>
-    <!--透明色-->
-    <color name="blue_alpha_80">#5003a9f4</color>
-    <color name="blue_alpha_224">#e003a9f4</color>
-    <color name="green_alpha_80">#5000bcd4</color>
+    <!--登录/注册图标颜色-->
+    <color name="iconAccent">@color/light_blue_500</color>
 </resources>
