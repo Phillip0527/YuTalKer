@@ -7,6 +7,7 @@ import com.im.yutalker.factory.R;
 import com.im.yutalker.factory.data.DataSource;
 import com.im.yutalker.factory.data.helper.AccountHelper;
 import com.im.yutalker.factory.model.api.account.RegisterModel;
+import com.im.yutalker.factory.persistence.Account;
 import com.im.yutalker.factory.presenter.BasePresenter;
 
 import net.qiujuer.genius.kit.handler.Run;
@@ -46,7 +47,7 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View>
             // 网络请求
 
             // 构造model，进行请求调用
-            RegisterModel model = new RegisterModel(phone, name, password);
+            RegisterModel model = new RegisterModel(phone, name, password, Account.getPushId());
             // 进行网络请求
             AccountHelper.register(model, this);
         }

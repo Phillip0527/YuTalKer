@@ -12,14 +12,14 @@ public class RegisterModel {
     private String name;
     private String pushId;
 
-    public RegisterModel(String account, String password, String name) {
-        this(account, password, name, null);
+    public RegisterModel(String account, String name, String password) {
+        this(account, name, password, null);
     }
 
-    public RegisterModel(String account, String password, String name, String pushId) {
+    public RegisterModel(String account, String name, String password, String pushId) {
         this.account = account;
-        this.password = password;
         this.name = name;
+        this.password = password;
         this.pushId = pushId;
     }
 

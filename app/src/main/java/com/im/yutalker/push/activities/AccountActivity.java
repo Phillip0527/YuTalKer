@@ -49,7 +49,7 @@ public class AccountActivity extends Activity implements AccountTrigger {
     protected void initWidget() {
         super.initWidget();
         // 初始化Fragment
-        mCurFragment = mLoginFragment = new RegisterFragment();
+        mCurFragment = mLoginFragment = new LoginFragment();
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.lay_container, mCurFragment)

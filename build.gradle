@@ -18,6 +18,8 @@ allprojects {
         google()
         jcenter()
         maven { url "https://jitpack.io" }
+        //个推私有Maven URL地址
+        maven { url "http://mvn.gt.igexin.com/nexus/content/repositories/releases/" }
     }
 }
 
@@ -40,20 +42,20 @@ ext{
     circleimageviewVersion = '2.2.0'
     //google官方推荐的图片加载库
     glideVersion = '3.7.0'
-
-    //图片剪切库
-    ucropVersion = "2.2.0-native"
-
     //google官方推荐的权限申请简化的库
-    easyPMVersion = "1.1.1"
-    //阿里云oss上传的sdk
-    ossVersion = '2.3.0'
-
+    easyPMVersion = "1.1.0"
     //google官方的gson类库
     gsonVersion = '2.8.0'
+    //图片剪切库
+    ucropVersion = "2.2.0-native"
+    //阿里云oss上传的sdk
+    ossVersion = '2.3.0'
     //网络请求框架 非常适合restful 风格请求
     retrofitVersion = '2.1.0'
-
+    // 个推sdk
+    getuiVersion = '2.9.3.0'
+    // ORM框架(数据库关系映射成对象)
+    dbflowVersion = "4.2.4"
 
 
 }

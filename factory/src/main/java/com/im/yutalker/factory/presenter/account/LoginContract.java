@@ -19,7 +19,7 @@ public interface LoginContract {
     interface Presenter extends BaseContract.Presenter {
 
         // 登录
-        void login(String phone, String name, String password);
+        void login(String phone,  String password);
 
     }
 }
