@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="action_home">主 页</string>
+    <string name="action_home">主页</string>
     <string name="action_group">群/组</string>
-    <string name="action_contact">消 息</string>
+    <string name="action_contact">消息</string>
 </resources>

@@ -15,6 +15,6 @@
     </style>
 
     <style name="BottomNavigationView" parent="Theme.AppCompat">
-        <item name="colorControlHighlight">@color/BottomNavigationViewTextSecond</item>
+        <item name="colorControlHighlight">@color/BottomNavigationViewClickColor6</item>
     </style>
 </resources>

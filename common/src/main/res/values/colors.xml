@@ -19,9 +19,11 @@
     <color name="textAccent">@color/colorAccent</color>
     <color name="textLight">@color/colorLight</color>
     <color name="textDark">#202020</color>
-    <color name="BottomNavigationViewTextPrimary">#DE006064</color>
-    <color name="BottomNavigationViewTextSecond">#8A006064</color>
-    <color name="BottomNavigationViewTextThird">#42006064</color>
+    <color name="BottomNavigationViewText87">#DE000000</color>
+    <color name="BottomNavigationViewText54">#8A000000</color>
+    <color name="BottomNavigationViewText26">#42000000</color>
+    <color name="BottomNavigationViewClickColor6">#0F000000</color>
+    <color name="BottomNavigationViewClickColor0">#00000000</color>
 
     <!--提示颜色-->
     <color name="alertNormal">#4ce275</color>

@@ -56,7 +56,8 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
     private NavHelper<Integer> mNavHelper;
 
     /**
-     *  MainActivity显示的入口
+     * MainActivity显示的入口
+     *
      * @param context 上下文
      */
     public static void show(Context context) {
@@ -151,12 +152,12 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
             // transY 默认为0 则显示
             if (Objects.equals(newTab.extra, R.string.title_group)) {
                 // 群
-                mAction.setImageResource(R.drawable.ic_group_add);
-                rotation = 0;
+                mAction.setImageResource(R.drawable.ic_contact_add_fill);
+                rotation = 360;
             } else {
                 // 联系人
-                mAction.setImageResource(R.drawable.ic_contact_add);
-                rotation = 360;
+                mAction.setImageResource(R.drawable.ic_contact_add_fill);
+                rotation = 0;
             }
         }
 
