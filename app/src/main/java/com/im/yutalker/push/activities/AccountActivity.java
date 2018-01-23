@@ -1,5 +1,6 @@
 package com.im.yutalker.push.activities;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
@@ -37,7 +38,7 @@ public class AccountActivity extends Activity implements AccountTrigger {
      * @param context Context
      */
     public static void show(Context context) {
-        context.startActivity(new Intent(context, AccountActivity.class));
+        context.startActivity(new Intent(context, AccountActivity.class),ActivityOptions.makeSceneTransitionAnimation((Activity) context).toBundle());
     }
 
     @Override
@@ -57,7 +58,7 @@ public class AccountActivity extends Activity implements AccountTrigger {
 
         // 初始化背景
         Glide.with(this)
-                .load(R.drawable.bg_material_design)
+                .load(R.drawable.bg_material_design3)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(new ViewTarget<ImageView, GlideDrawable>(imBg) {
                     @Override

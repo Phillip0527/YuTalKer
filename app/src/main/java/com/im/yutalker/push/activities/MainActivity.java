@@ -1,9 +1,14 @@
 package com.im.yutalker.push.activities;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +23,7 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.im.yutalker.common.app.Activity;
 import com.im.yutalker.common.widget.PortraitView;
+import com.im.yutalker.factory.persistence.Account;
 import com.im.yutalker.push.R;
 import com.im.yutalker.push.fragments.main.ActiveFragment;
 import com.im.yutalker.push.fragments.main.ContactFragment;
@@ -60,13 +66,28 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
      *
      * @param context 上下文
      */
-    public static void show(Context context) {
+    public static void show(Context context, View view) {
+//        Pair pair = new Pair<>(view, "iv");
+//        ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
+//                (Activity)context, pair);
+//        context.startActivity(new Intent(context, MainActivity.class),activityOptions.toBundle());
         context.startActivity(new Intent(context, MainActivity.class));
     }
 
     @Override
     protected int getContentLayoutId() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    protected boolean initArgs(Bundle bundle) {
+        if (Account.isComplete()) {
+            // 用户资料完全，则走正常程序
+            return super.initArgs(bundle);
+        } else {
+            UserActivity.start(this);
+            return false;
+        }
     }
 
     @Override

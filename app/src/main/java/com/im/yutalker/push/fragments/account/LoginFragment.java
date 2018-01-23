@@ -101,7 +101,7 @@ public class LoginFragment extends PresenterFragment<LoginContract.Presenter> im
     public void loginSuccess() {
         // 登录成功
         // 跳转到MainActivity界面
-        MainActivity.show(getActivity());
+        MainActivity.show(getActivity(),null);
         // 关闭当前界面
         getActivity().finish();
     }

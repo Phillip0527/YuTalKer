@@ -101,7 +101,15 @@ public class Account {
      */
     public static boolean isComplete() {
         // TODO 检查是否完善
-        return isLogin();
+        // 登陆成功
+        if (isLogin()) {
+            User self = getUser();
+            return !TextUtils.isEmpty(self.getDesc()) &&
+                    !TextUtils.isEmpty(self.getPortrait()) &&
+                    self.getSex() != 0;
+        }
+        // 未登录，返回信息不完全
+        return false;
     }
 
     /**
@@ -136,6 +144,7 @@ public class Account {
 
     /**
      * 获取当前登录用户信息
+     *
      * @return User 当前登录用户
      */
     public static User getUser() {
@@ -150,9 +159,10 @@ public class Account {
 
     /**
      * 获取当前登录的token
+     *
      * @return token
      */
-    public static String getToken(){
+    public static String getToken() {
         return token;
     }
 }

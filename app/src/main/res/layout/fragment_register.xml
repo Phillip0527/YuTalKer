@@ -4,14 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:background="@drawable/bg_material_design"
+    tools:background="@drawable/bg_material_design3"
     tools:context="com.im.yutalker.push.fragments.account.RegisterFragment">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_gradient_black"
         android:paddingBottom="@dimen/len_28"
-        android:paddingTop="@dimen/len_48"
+        android:paddingTop="@dimen/len_64"
         app:title="@string/label_register_welcome"
         app:titleTextAppearance="@style/TextAppearance.AppCompat.Display1" />
 
@@ -38,7 +39,7 @@
                 android:layout_marginRight="@dimen/len_8"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_phone"
-                android:tint="@color/colorAccent" />
+                android:tint="@color/iconAccent" />
 
             <EditText
                 android:id="@+id/edit_phone"
@@ -67,7 +68,7 @@
             android:layout_marginEnd="@dimen/len_8"
             android:layout_marginStart="@dimen/len_44"
             android:layout_marginTop="@dimen/len_2"
-            android:background="@color/black_alpha_32" />
+            android:background="@color/black_alpha_96" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,7 +84,7 @@
                 android:layout_marginRight="@dimen/len_8"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_key"
-                android:tint="@color/colorAccent" />
+                android:tint="@color/iconAccent" />
 
             <EditText
                 android:id="@+id/edit_password"
@@ -112,7 +113,7 @@
             android:layout_marginEnd="@dimen/len_8"
             android:layout_marginStart="@dimen/len_44"
             android:layout_marginTop="@dimen/len_2"
-            android:background="@color/black_alpha_32" />
+            android:background="@color/black_alpha_96" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -128,7 +129,7 @@
                 android:layout_marginRight="@dimen/len_8"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/ic_person"
-                android:tint="@color/colorAccent" />
+                android:tint="@color/iconAccent" />
 
             <EditText
                 android:id="@+id/edit_name"
@@ -201,7 +202,7 @@
             android:background="@drawable/sel_btn_bg_black_alpha_44"
             android:text="@string/label_register"
             android:textColor="@color/white"
-            app:gTouchColor="@color/white_alpha_96"
+            app:gTouchColor="@color/black_alpha_64"
             app:gTouchCornerRadius="22dp"
             app:gTouchEffect="ripple" />
 

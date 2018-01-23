@@ -2,6 +2,7 @@ package com.im.yutalker.common.app;
 
 import android.os.SystemClock;
 import android.support.annotation.StringRes;
+import android.view.Gravity;
 import android.widget.Toast;
 
 import net.qiujuer.genius.kit.handler.Run;
@@ -103,7 +104,9 @@ public class Application extends android.app.Application {
             @Override
             public void call() {
                 // 这里进行回调的时候一定就是主线程状态了
-                Toast.makeText(instance, msg, Toast.LENGTH_SHORT).show();
+                Toast toast = Toast.makeText(instance, msg, Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
             }
         });
 

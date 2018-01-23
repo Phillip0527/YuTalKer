@@ -106,7 +106,7 @@ public class RegisterFragment extends PresenterFragment<RegisterContract.Present
     public void registerSuccess() {
         // 注册成功，账户自动登录
         // 跳转到MainActivity界面
-        MainActivity.show(getActivity());
+        MainActivity.show(getActivity(),null);
         // 关闭当前界面
         getActivity().finish();
     }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
+    <slide
+        android:duration="150"
+        android:slideEdge="end">
+        <!--<targets>-->
+            <!--<target android:excludeId="@+id/lay_container" />-->
+            <!--<target android:excludeId="@+id/appbar" />-->
+            <!--<target android:excludeId="@+id/navigation" />-->
+            <!--<target android:excludeId="@+id/btn_action" />-->
+        <!--</targets>-->
+    </slide>
+
+    <!--<fade android:duration="300">-->
+        <!--<targets>-->
+            <!--<target android:targetId="@+id/lay_container" />-->
+            <!--<target android:targetId="@+id/appbar" />-->
+            <!--<target android:targetId="@+id/navigation" />-->
+            <!--<target android:targetId="@+id/btn_action" />-->
+        <!--</targets>-->
+    <!--</fade>-->
+</transitionSet>

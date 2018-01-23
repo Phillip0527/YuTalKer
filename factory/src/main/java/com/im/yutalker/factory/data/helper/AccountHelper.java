@@ -27,7 +27,7 @@ public class AccountHelper {
 
 
     /**
-     * 注册的接口，异步的调用
+     * 注册，异步的调用
      *
      * @param model    传递一个注册的model
      * @param callBack 成功与失败的接口回送

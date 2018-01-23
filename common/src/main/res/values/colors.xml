@@ -10,6 +10,7 @@
     <color name="colorDark">@color/black</color>
     <color name="colorAccentAlpha">#8000bcd4</color>
     <color name="colorAccentAlpha30">#4D00bcd4</color>
+    <color name="colorAccentAlpha20">#3300bcd4</color>
     <!--背景颜色-->
     <color name="windowsBackground">#f7f7f7</color>
     <color name="windowsBackgroundLight">#f8f8f8</color>
@@ -33,5 +34,5 @@
     <!--导航栏icon遮罩颜色-->
     <color name="navIconTintLight">@color/white_alpha_240</color>
     <!--登录/注册图标颜色-->
-    <color name="iconAccent">@color/light_blue_500</color>
+    <color name="iconAccent">@color/cyan_700</color>
 </resources>

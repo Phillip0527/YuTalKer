@@ -42,6 +42,7 @@ ext{
     circleimageviewVersion = '2.2.0'
     //google官方推荐的图片加载库
     glideVersion = '3.7.0'
+    glideTransformationsVersion='2.0.1'
     //google官方推荐的权限申请简化的库
     easyPMVersion = "1.1.0"
     //google官方的gson类库

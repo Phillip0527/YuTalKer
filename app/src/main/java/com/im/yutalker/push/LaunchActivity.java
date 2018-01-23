@@ -100,7 +100,7 @@ public class LaunchActivity extends Activity {
         if (PermissionsFragment.haveAllPerms(this, getSupportFragmentManager())) {
             // 检查跳转到主页还是登录页
             if (Account.isLogin()) {
-                MainActivity.show(this);
+                MainActivity.show(this,findViewById(R.id.image_view_logo));
             } else {
                 AccountActivity.show(this);
             }
