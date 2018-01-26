@@ -100,11 +100,13 @@ public class LaunchActivity extends Activity {
         if (PermissionsFragment.haveAllPerms(this, getSupportFragmentManager())) {
             // 检查跳转到主页还是登录页
             if (Account.isLogin()) {
-                MainActivity.show(this,findViewById(R.id.image_view_logo));
+                MainActivity.show(this);
             } else {
                 AccountActivity.show(this);
             }
+//            finishAfterTransition();
             finish();
+            overridePendingTransition(com.im.yutalker.common.R.anim.left_to_current, com.im.yutalker.common.R.anim.current_to_right);
         }
     }
 

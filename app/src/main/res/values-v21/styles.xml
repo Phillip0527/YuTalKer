@@ -3,10 +3,5 @@
 
     <style name="AppTheme.TransStatusBar" parent="AppTheme.TransStatusBar.Base">
         <item name="android:statusBarColor">@null</item>
-        <!-- 开启过渡效果 -->
-        <item name="android:windowContentTransitions">true</item>
-        <!-- 指定界面进入/退出动画效果 -->
-        <item name="android:windowEnterTransition">@transition/slide_fade_enter</item>
-        <item name="android:windowExitTransition">@transition/slide_exit</item>
     </style>
 </resources>

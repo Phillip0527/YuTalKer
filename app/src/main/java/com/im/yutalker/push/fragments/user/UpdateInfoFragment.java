@@ -186,7 +186,7 @@ public class UpdateInfoFragment extends PresenterFragment<UpdateInfoContract.Pre
     public void updateSucceed() {
         // 更新成功
         // 跳转到MainActivity界面
-        MainActivity.show(getActivity(), null);
+        MainActivity.show(getActivity());
         // 关闭当前界面
         getActivity().finish();
     }

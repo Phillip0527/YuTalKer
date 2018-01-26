@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <transitionSet xmlns:android="http://schemas.android.com/apk/res/android">
     <slide
-        android:duration="150"
-        android:slideEdge="start">
+        android:duration="500"
+        android:slideEdge="left">
+        <!--android:interpolator="@android:interpolator/anticipate"-->
         <!--<targets>-->
-        <!--<target android:excludeId="@+id/lay_container" />-->
-        <!--<target android:excludeId="@+id/appbar" />-->
-        <!--<target android:excludeId="@+id/navigation" />-->
-        <!--<target android:excludeId="@+id/btn_action" />-->
+            <!--<target android:excludeId="@+id/appbar" />-->
+            <!--<target android:excludeId="@+id/navigation" />-->
+            <!--<target android:excludeId="@+id/btn_action" />-->
+            <!--<target android:excludeId="@+id/tv" />-->
         <!--</targets>-->
     </slide>
 

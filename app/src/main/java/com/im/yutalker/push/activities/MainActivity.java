@@ -1,14 +1,11 @@
 package com.im.yutalker.push.activities;
 
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -66,12 +63,14 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
      *
      * @param context 上下文
      */
-    public static void show(Context context, View view) {
+    public static void show(Context context) {
 //        Pair pair = new Pair<>(view, "iv");
 //        ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
 //                (Activity)context, pair);
 //        context.startActivity(new Intent(context, MainActivity.class),activityOptions.toBundle());
+        Activity activity=(Activity)context;
         context.startActivity(new Intent(context, MainActivity.class));
+        activity.overridePendingTransition(R.anim.right_to_current,R.anim.current_to_left);
     }
 
     @Override
@@ -85,7 +84,7 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
             // 用户资料完全，则走正常程序
             return super.initArgs(bundle);
         } else {
-            UserActivity.start(this);
+            UserActivity.show(this);
             return false;
         }
     }
@@ -128,12 +127,23 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
 
     @OnClick(R.id.im_search)
     void onSearchMenuClick() {
-
+        // 判断是群还是人的按钮
+        int type = Objects.equals(mNavHelper.getCurrentTab().extra, R.string.title_group)
+                ? SearchActivity.TYPE_GROUP : SearchActivity.TYPE_USER;
+        // 打开搜索界面
+        SearchActivity.show(this, type);
     }
 
     @OnClick(R.id.btn_action)
     void onActionClick() {
-        AccountActivity.show(this);
+        // 判断是群还是人的按钮
+        if (Objects.equals(mNavHelper.getCurrentTab().extra, R.string.title_group)) {
+            // TODO 打开群搜索界面
+        } else {
+            // 打开用户搜索界面
+            SearchActivity.show(this, SearchActivity.TYPE_USER);
+        }
+
     }
 
     /**

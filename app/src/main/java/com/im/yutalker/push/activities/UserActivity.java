@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.widget.ImageView;
 
@@ -35,8 +36,10 @@ public class UserActivity extends Activity {
     @BindView(R.id.im_bg)
     ImageView imBg;
 
-    public static void start(Context context) {
-        context.startActivity(new Intent(context, UserActivity.class), ActivityOptions.makeSceneTransitionAnimation((Activity) context).toBundle());
+    public static void show(Context context) {
+        Activity activity=(Activity)context;
+        context.startActivity(new Intent(context, UserActivity.class));
+        activity.overridePendingTransition(R.anim.right_to_current,R.anim.current_to_left);
     }
 
     @Override

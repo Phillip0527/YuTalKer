@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.widget.ImageView;
 
@@ -38,7 +39,9 @@ public class AccountActivity extends Activity implements AccountTrigger {
      * @param context Context
      */
     public static void show(Context context) {
-        context.startActivity(new Intent(context, AccountActivity.class),ActivityOptions.makeSceneTransitionAnimation((Activity) context).toBundle());
+        Activity activity=(Activity)context;
+        context.startActivity(new Intent(context, AccountActivity.class));
+        activity.overridePendingTransition(R.anim.right_to_current,R.anim.current_to_left);
     }
 
     @Override

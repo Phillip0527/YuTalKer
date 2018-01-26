@@ -17,7 +17,7 @@
     <!--字体颜色-->
     <color name="textPrimary">#4e5864</color>
     <color name="textSecond">#8d9ca9</color>
-    <color name="textAccent">@color/colorAccent</color>
+    <color name="textAccent">@color/iconAccent</color>
     <color name="textLight">@color/colorLight</color>
     <color name="textDark">#202020</color>
     <color name="BottomNavigationViewText87">#DE000000</color>

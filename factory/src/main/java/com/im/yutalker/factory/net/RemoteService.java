@@ -8,8 +8,11 @@ import com.im.yutalker.factory.model.api.user.UserUpdateModel;
 import com.im.yutalker.factory.model.card.UserCard;
 import com.im.yutalker.factory.persistence.Account;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
@@ -54,4 +57,22 @@ public interface RemoteService {
      */
     @PUT("user")
     Call<RspModel<UserCard>> userUpdate(@Body UserUpdateModel model);
+
+    /**
+     * 网络请求一个用户搜索的接口
+     *
+     * @param name 请求的文字
+     * @return UserCard集合
+     */
+    @GET("user/search/{name}")
+    Call<RspModel<List<UserCard>>> userSearch(@Path("name") String name);
+
+    /**
+     * 网络请求一个用户关注的接口
+     *
+     * @param userId 关注的id
+     * @return UserCard集合
+     */
+    @PUT("user/follow/{userId}")
+    Call<RspModel<UserCard>> userFollow(@Path("userId") String userId);
 }

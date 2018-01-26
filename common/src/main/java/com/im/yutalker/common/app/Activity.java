@@ -11,6 +11,8 @@ import android.transition.Fade;
 import android.transition.Slide;
 import android.view.Window;
 
+import com.im.yutalker.common.R;
+
 import java.lang.reflect.Field;
 import java.util.List;
 
@@ -35,7 +37,7 @@ public abstract class Activity extends AppCompatActivity {
             initWidget();
             initData();
         } else {
-            finish();
+            finishAfterTransition();
         }
 
     }
@@ -93,7 +95,9 @@ public abstract class Activity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         // 当点击界面导航返回时，finish当前界面
+//        finishAfterTransition();
         finish();
+        overridePendingTransition(R.anim.left_to_current,R.anim.current_to_right);
         return super.onSupportNavigateUp();
     }
 
@@ -116,6 +120,8 @@ public abstract class Activity extends AppCompatActivity {
         }
 
         super.onBackPressed();
+//        finishAfterTransition();
         finish();
+        overridePendingTransition(R.anim.left_to_current,R.anim.current_to_right);
     }
 }

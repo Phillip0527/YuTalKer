@@ -9,6 +9,20 @@
         <!--顶部导航条中的icon和二级字体的颜色-->
         <item name="colorControlNormal">@color/white_alpha_240</item>
         <item name="colorControlActivated">@color/textPrimary</item>
+        <!-- 开启过渡效果 -->
+        <item name="android:windowContentTransitions">true</item>
+        <!-- 指定界面进入/退出动画效果 -->
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <!--<item name="android:windowEnterTransition">@android:transition/slide_right</item>-->
+        <!--<item name="android:windowExitTransition">@android:transition/slide_left</item>-->
+        <!--<item name="android:windowEnterTransition">@transition/slide_enter</item>-->
+        <!--<item name="android:windowExitTransition">@transition/slide_exit</item>-->
+        <!--<item name="android:windowSharedElementEnterTransition">@android:transition/fade</item>-->
+        <!--<item name="android:windowSharedElementExitTransition">@android:transition/fade</item>-->
+
+        <!--自定义动画-->
+        <!--<item name="android:windowAnimationStyle">@style/activityAnimation</item>-->
     </style>
 
     <style name="AppTheme.TransStatusBar.Base" parent="AppTheme">
@@ -37,4 +51,11 @@
         <item name="android:textColor">?attr/toolbarTitleColor</item>
     </style>
 
+
+    <!--<style name="activityAnimation" parent="@android:style/Animation">-->
+    <!--<item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>-->
+    <!--<item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>-->
+    <!--<item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>-->
+    <!--<item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>-->
+    <!--</style>-->
 </resources>
