@@ -38,7 +38,7 @@
 
         <activity
             android:name=".LaunchActivity"
-            android:theme="@style/AppTheme.TransStatusBar">
+            android:theme="@style/AppTheme.TransStatusBar.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -65,6 +65,16 @@
         <activity
             android:name=".activities.SearchActivity"
             android:label="@string/title_search"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.TransStatusBar" />
+        <activity
+            android:name=".activities.MessageActivity"
+            android:label="@string/title_activity_message"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.TransStatusBar"/>
+        <activity
+            android:name=".activities.PersonalActivity"
+            android:label="@string/title_activity_personal"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.TransStatusBar" />
     </application>

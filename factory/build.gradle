@@ -27,6 +27,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    implementation "com.android.support:recyclerview-v7:$rootProject.ext.supportVersion"
+
     compile "com.aliyun.dpa:oss-android-sdk:$rootProject.ext.ossVersion"
 
     compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"

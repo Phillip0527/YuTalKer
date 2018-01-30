@@ -1,5 +1,6 @@
 package com.im.yutalker.factory.model.card;
 
+import com.im.yutalker.factory.model.Author;
 import com.im.yutalker.factory.model.dp.User;
 
 import java.util.Date;
@@ -8,7 +9,7 @@ import java.util.Date;
  * Created by Phillip on 2018/1/22.
  */
 
-public class UserCard {
+public class UserCard implements Author{
     private String id;
     private String name;
     private String phone;

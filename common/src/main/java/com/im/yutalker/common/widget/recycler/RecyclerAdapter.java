@@ -81,7 +81,7 @@ public abstract class RecyclerAdapter<Data>
         ViewHolder<Data> holder = onCreateViewHolder(root, viewType);
 
         // 设置View的Tag为ViewHolder，进行双向绑定
-        root.setTag(R.id.tag_recycler_holder,holder);
+        root.setTag(R.id.tag_recycler_holder, holder);
 
         // 设置事件点击
         root.setOnClickListener(this);
@@ -127,6 +127,14 @@ public abstract class RecyclerAdapter<Data>
     @Override
     public int getItemCount() {
         return mDataList.size();
+    }
+
+    /**
+     * 返回整个集合
+     * @return List<Data>
+     */
+    public List<Data> getItems() {
+        return mDataList;
     }
 
     /**
@@ -191,10 +199,10 @@ public abstract class RecyclerAdapter<Data>
     public void update(Data data, ViewHolder<Data> holder) {
         // 得到当前的ViewHolder的坐标
         int pos = holder.getAdapterPosition();
-        if(pos>=0){
+        if (pos >= 0) {
             // 进行数据的移除与更新
             mDataList.remove(pos);
-            mDataList.add(pos,data);
+            mDataList.add(pos, data);
             // 通知这个坐标下的数据有更新
             notifyItemChanged(pos);
         }
@@ -291,9 +299,10 @@ public abstract class RecyclerAdapter<Data>
 
     /**
      * 对回调接口做一次实现AdapterListener
+     *
      * @param <Data>
      */
-    public static abstract class AdapterListenerImpl<Data> implements AdapterListener<Data>{
+    public static abstract class AdapterListenerImpl<Data> implements AdapterListener<Data> {
         @Override
         public void onItemClick(ViewHolder holder, Data data) {
 

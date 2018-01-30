@@ -1,6 +1,5 @@
 package com.im.yutalker.push.activities;
 
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
@@ -41,7 +40,7 @@ public class AccountActivity extends Activity implements AccountTrigger {
     public static void show(Context context) {
         Activity activity=(Activity)context;
         context.startActivity(new Intent(context, AccountActivity.class));
-        activity.overridePendingTransition(R.anim.right_to_current,R.anim.current_to_left);
+//        activity.overridePendingTransition(R.anim.slide_out_right,R.anim.slide_in_left);
     }
 
     @Override

@@ -4,13 +4,21 @@
     android:layout_height="match_parent"
     tools:context="com.im.yutalker.push.fragments.main.ContactFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/tv"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:textColor="@color/textPrimary"
-        android:text="Contact" />
+        android:background="@drawable/bg_main_recycler"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/len_12"
+        android:paddingTop="@dimen/len_12"
+        android:visibility="gone"
+        android:elevation="1dp"
+        android:outlineProvider="bounds"/>
+
+    <com.im.yutalker.common.widget.EmptyView
+        android:id="@+id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </FrameLayout>

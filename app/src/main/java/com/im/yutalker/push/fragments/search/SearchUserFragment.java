@@ -20,6 +20,7 @@ import com.im.yutalker.factory.presenter.contact.FollowPresenter;
 import com.im.yutalker.factory.presenter.search.SearchContract;
 import com.im.yutalker.factory.presenter.search.SearchUserPresenter;
 import com.im.yutalker.push.R;
+import com.im.yutalker.push.activities.PersonalActivity;
 import com.im.yutalker.push.activities.SearchActivity;
 
 import net.qiujuer.genius.ui.Ui;
@@ -123,12 +124,15 @@ public class SearchUserFragment extends PresenterFragment<SearchContract.Present
 
         @Override
         protected void onBind(UserCard userCard) {
-            Glide.with(SearchUserFragment.this)
-                    .load(userCard.getPortrait())
-                    .centerCrop()
-                    .into(mPortraitView);
+            mPortraitView.setup(Glide.with(SearchUserFragment.this), userCard);
             mName.setText(userCard.getName());
             mFollow.setEnabled(!userCard.isFollow());
+        }
+
+        @OnClick(R.id.im_portrait)
+        void onPortraitClick() {
+            // 显示信息
+            PersonalActivity.show(getContext(), mData.getId());
         }
 
         @OnClick(R.id.im_follow)

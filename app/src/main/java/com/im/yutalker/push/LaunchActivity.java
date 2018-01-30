@@ -106,7 +106,7 @@ public class LaunchActivity extends Activity {
             }
 //            finishAfterTransition();
             finish();
-            overridePendingTransition(com.im.yutalker.common.R.anim.left_to_current, com.im.yutalker.common.R.anim.current_to_right);
+            overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
         }
     }
 

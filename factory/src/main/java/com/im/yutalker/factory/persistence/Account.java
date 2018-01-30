@@ -158,6 +158,14 @@ public class Account {
     }
 
     /**
+     *  得到UserId
+     * @return UserId
+     */
+    public static String getUserId() {
+        return getUser().getId();
+    }
+
+    /**
      * 获取当前登录的token
      *
      * @return token

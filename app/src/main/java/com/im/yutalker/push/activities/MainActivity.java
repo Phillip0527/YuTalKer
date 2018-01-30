@@ -68,9 +68,8 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
 //        ActivityOptionsCompat activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
 //                (Activity)context, pair);
 //        context.startActivity(new Intent(context, MainActivity.class),activityOptions.toBundle());
-        Activity activity=(Activity)context;
+        Activity activity = (Activity) context;
         context.startActivity(new Intent(context, MainActivity.class));
-        activity.overridePendingTransition(R.anim.right_to_current,R.anim.current_to_left);
     }
 
     @Override
@@ -123,6 +122,14 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
         Menu menu = mNavigation.getMenu();
         // 触发首次选中Home
         menu.performIdentifierAction(R.id.action_home, 0);
+
+        // 初始化头像
+        mPortrait.setup(Glide.with(this), Account.getUser());
+    }
+
+    @OnClick(R.id.im_portrait)
+    void onPortraitClick() {
+        PersonalActivity.show(this, Account.getUserId());
     }
 
     @OnClick(R.id.im_search)

@@ -1,6 +1,5 @@
 package com.im.yutalker.push.activities;
 
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
@@ -17,13 +16,9 @@ import com.bumptech.glide.request.target.ViewTarget;
 import com.im.yutalker.common.app.Activity;
 import com.im.yutalker.common.app.Fragment;
 import com.im.yutalker.push.R;
-import com.im.yutalker.push.fragments.account.LoginFragment;
 import com.im.yutalker.push.fragments.user.UpdateInfoFragment;
 
 import butterknife.BindView;
-import jp.wasabeef.glide.transformations.BlurTransformation;
-
-import static com.igexin.sdk.PushService.context;
 
 /**
  * 用户信息界面
@@ -39,7 +34,7 @@ public class UserActivity extends Activity {
     public static void show(Context context) {
         Activity activity=(Activity)context;
         context.startActivity(new Intent(context, UserActivity.class));
-        activity.overridePendingTransition(R.anim.right_to_current,R.anim.current_to_left);
+//        activity.overridePendingTransition(R.anim.slide_out_right,R.anim.slide_in_left);
     }
 
     @Override

@@ -19,7 +19,7 @@
         android:minWidth="@dimen/len_48"
         android:scaleType="centerInside"
         android:src="@drawable/status_empty"
-        android:tint="@color/colorAccentAlpha30" />
+        android:tint="@color/colorAccentAlpha" />
 
     <net.qiujuer.genius.ui.widget.Loading
         android:id="@+id/loading"

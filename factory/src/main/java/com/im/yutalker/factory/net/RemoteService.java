@@ -6,6 +6,7 @@ import com.im.yutalker.factory.model.api.account.LoginModel;
 import com.im.yutalker.factory.model.api.account.RegisterModel;
 import com.im.yutalker.factory.model.api.user.UserUpdateModel;
 import com.im.yutalker.factory.model.card.UserCard;
+import com.im.yutalker.factory.model.dp.User;
 import com.im.yutalker.factory.persistence.Account;
 
 import java.util.List;
@@ -71,8 +72,24 @@ public interface RemoteService {
      * 网络请求一个用户关注的接口
      *
      * @param userId 关注的id
-     * @return UserCard集合
+     * @return UserCard
      */
     @PUT("user/follow/{userId}")
     Call<RspModel<UserCard>> userFollow(@Path("userId") String userId);
+
+    /**
+     * 网络请求一个获取联系人列表的接口
+     *
+     * @return UserCard集合
+     */
+    @GET("user/contact")
+    Call<RspModel<List<UserCard>>> userContacts();
+
+    /**
+     * 网络请求一个获取联系人的接口
+     *
+     * @return UserCard
+     */
+    @GET("user/{userId}")
+    Call<RspModel<UserCard>> userFind(@Path("userId") String userId);
 }

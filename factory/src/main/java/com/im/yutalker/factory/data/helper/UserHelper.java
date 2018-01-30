@@ -8,10 +8,13 @@ import com.im.yutalker.factory.model.api.account.AccountRspModel;
 import com.im.yutalker.factory.model.api.user.UserUpdateModel;
 import com.im.yutalker.factory.model.card.UserCard;
 import com.im.yutalker.factory.model.dp.User;
+import com.im.yutalker.factory.model.dp.User_Table;
 import com.im.yutalker.factory.net.NetWork;
 import com.im.yutalker.factory.net.RemoteService;
 import com.im.yutalker.factory.presenter.contact.FollowPresenter;
+import com.raizlabs.android.dbflow.sql.language.SQLite;
 
+import java.io.IOException;
 import java.util.List;
 
 import retrofit2.Call;
@@ -90,8 +93,8 @@ public class UserHelper {
 
                     // 返回数据
                     callBack.onDataLoaded(card);
-                }else {
-                    Factory.decodeRspCode(rspModel,callBack);
+                } else {
+                    Factory.decodeRspCode(rspModel, callBack);
                 }
             }
 
@@ -100,6 +103,87 @@ public class UserHelper {
                 callBack.onDataNotAvailable(R.string.data_network_error);
             }
         });
+    }
+
+    /**
+     * 刷新联系人的操作，异步的
+     *
+     * @param callBack 网络请求结果回调
+     */
+    public static void refreshContacts(final DataSource.CallBack<List<UserCard>> callBack) {
+        // 调用Retrofit对我们的网络请求做代理
+        RemoteService service = NetWork.remote();
+        // 得到一个Call<T>
+        Call<RspModel<List<UserCard>>> call = service.userContacts();
+        // 异步的网络请求
+        call.enqueue(new Callback<RspModel<List<UserCard>>>() {
+            @Override
+            public void onResponse(Call<RspModel<List<UserCard>>> call, Response<RspModel<List<UserCard>>> response) {
+                RspModel<List<UserCard>> rspModel = response.body();
+                if (rspModel.success()) {
+                    // 直接返回
+                    callBack.onDataLoaded(rspModel.getResult());
+                } else {
+                    // 错误的情况下
+                    Factory.decodeRspCode(rspModel, callBack);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RspModel<List<UserCard>>> call, Throwable t) {
+                callBack.onDataNotAvailable(R.string.data_network_error);
+            }
+        });
+    }
+
+    // 从本地查询一个用户的信息
+    public static User findFromLocal(String id) {
+        return SQLite.select()
+                .from(User.class)
+                .where(User_Table.id.eq(id))
+                .querySingle();
+    }
+
+    // 从网络查询一个用户的信息
+    public static User findFromNet(String id) {
+        RemoteService service = NetWork.remote();
+        try {
+            Response<RspModel<UserCard>> response = service.userFind(id).execute();
+            UserCard card = response.body().getResult();
+            if (card != null) {
+                // TODO 数据库存储但是没有通知
+                User user = card.build();
+                user.save();
+                return user;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 搜索一个用户，优先从本地缓存取
+     * 没有再从网络拉取
+     */
+    public static User search(String id) {
+        User user = findFromLocal(id);
+        if (user == null) {
+            return findFromNet(id);
+        }
+        return user;
+    }
+
+    /**
+     * 搜索一个用户，优先从网络取
+     * 没有再从本地缓存取
+     */
+    public static User searchFirstOfNet(String id) {
+        User user = findFromNet(id);
+        if (user == null) {
+            return findFromLocal(id);
+        }
+        return user;
     }
 
 

@@ -10,32 +10,38 @@
         <item name="colorControlNormal">@color/white_alpha_240</item>
         <item name="colorControlActivated">@color/textPrimary</item>
         <!-- 开启过渡效果 -->
-        <item name="android:windowContentTransitions">true</item>
+        <!--<item name="android:windowContentTransitions">true</item>-->
         <!-- 指定界面进入/退出动画效果 -->
-        <item name="android:windowAllowEnterTransitionOverlap">true</item>
-        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <!--<item name="android:windowAllowEnterTransitionOverlap">true</item>-->
+        <!--<item name="android:windowAllowReturnTransitionOverlap">true</item>-->
         <!--<item name="android:windowEnterTransition">@android:transition/slide_right</item>-->
-        <!--<item name="android:windowExitTransition">@android:transition/slide_left</item>-->
+        <!--<item name="android:windowExitTransition">@android:transition/move</item>-->
         <!--<item name="android:windowEnterTransition">@transition/slide_enter</item>-->
         <!--<item name="android:windowExitTransition">@transition/slide_exit</item>-->
         <!--<item name="android:windowSharedElementEnterTransition">@android:transition/fade</item>-->
         <!--<item name="android:windowSharedElementExitTransition">@android:transition/fade</item>-->
 
-        <!--自定义动画-->
-        <!--<item name="android:windowAnimationStyle">@style/activityAnimation</item>-->
     </style>
 
     <style name="AppTheme.TransStatusBar.Base" parent="AppTheme">
         <!--去除顶部的状态栏-->
         <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowAnimationStyle">@null</item>
+        <!--去掉启动状态栏灰色-->
+        <!--<item name="android:windowIsTranslucent">true</item>-->
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowFrame">@null</item>
+        <!--<item name="android:windowAnimationStyle">@null</item>-->
+        <item name="android:windowAnimationStyle">@style/activityAnimation</item>
     </style>
 
     <!--需要这么写因为5.0以上在v21文件里需要去掉android:statusBar属性-->
     <style name="AppTheme.TransStatusBar" parent="AppTheme.TransStatusBar.Base" />
+
+    <!--启动页用-->
+    <style name="AppTheme.TransStatusBar.Launcher" parent="AppTheme.TransStatusBar" >
+        <!--去掉启动状态栏灰色-->
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
 
     <style name="AppTheme.Main" parent="AppTheme.TransStatusBar">
         <item name="toolbarTitleColor">@color/white</item>
@@ -52,10 +58,10 @@
     </style>
 
 
-    <!--<style name="activityAnimation" parent="@android:style/Animation">-->
-    <!--<item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>-->
-    <!--<item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>-->
-    <!--<item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>-->
-    <!--<item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>-->
-    <!--</style>-->
+    <style name="activityAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_in_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>
+    </style>
 </resources>

@@ -39,7 +39,21 @@ public class SearchActivity extends ToolBarActivity {
         Intent intent = new Intent(context, SearchActivity.class);
         intent.putExtra(EXTRA_TYPE, type);
         context.startActivity(intent);
-        activity.overridePendingTransition(R.anim.right_to_current,R.anim.current_to_left);
+        activity.overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        overridePendingTransition(0, R.anim.slide_out_right);
+        return super.onSupportNavigateUp();
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(0, R.anim.slide_out_right);
+        super.onBackPressed();
     }
 
     @Override
@@ -129,4 +143,6 @@ public class SearchActivity extends ToolBarActivity {
     public interface SearchFragment {
         void search(String query);
     }
+
+
 }
