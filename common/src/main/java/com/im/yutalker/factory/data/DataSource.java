@@ -36,4 +36,9 @@ public interface DataSource {
         void onDataNotAvailable(@StringRes int strRes);
 
     }
+
+    /**
+     * 销毁操作
+     */
+    void dispose();
 }

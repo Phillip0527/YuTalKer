@@ -6,6 +6,7 @@ import com.im.yutalker.factory.model.dp.User;
 import java.util.Date;
 
 /**
+ * 用户卡片，用于接收服务器返回
  * Created by Phillip on 2018/1/22.
  */
 

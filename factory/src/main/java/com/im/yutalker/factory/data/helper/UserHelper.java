@@ -12,9 +12,11 @@ import com.im.yutalker.factory.model.dp.User_Table;
 import com.im.yutalker.factory.net.NetWork;
 import com.im.yutalker.factory.net.RemoteService;
 import com.im.yutalker.factory.presenter.contact.FollowPresenter;
+import com.im.yutalker.utils.CollectionUtil;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -33,13 +35,32 @@ public class UserHelper {
      * @param model    用户更新的model
      * @param callBack 网络请求结果回调
      */
-    public static void update(UserUpdateModel model, DataSource.CallBack<UserCard> callBack) {
+    public static void update(UserUpdateModel model, final DataSource.CallBack<UserCard> callBack) {
         // 调用Retrofit对我们的网络请求做代理
         RemoteService service = NetWork.remote();
         // 得到一个Call<T>
         Call<RspModel<UserCard>> call = service.userUpdate(model);
         // 异步的网络请求
-        call.enqueue(new UserCardRspCallBack(callBack));
+        call.enqueue(new Callback<RspModel<UserCard>>() {
+            @Override
+            public void onResponse(Call<RspModel<UserCard>> call, Response<RspModel<UserCard>> response) {
+                RspModel<UserCard> rspModel = response.body();
+                if (rspModel.success()) {
+                    UserCard userCard = rspModel.getResult();
+                    // 唤起进行保存操作
+                    Factory.getUserCenter().dispatch(userCard);
+                    callBack.onDataLoaded(userCard);
+                } else {
+                    // 错误的情况下
+                    Factory.decodeRspCode(rspModel, callBack);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RspModel<UserCard>> call, Throwable t) {
+                callBack.onDataNotAvailable(R.string.data_network_error);
+            }
+        });
     }
 
     /**
@@ -77,6 +98,12 @@ public class UserHelper {
         return call;
     }
 
+    /**
+     * 关注的网络请求
+     *
+     * @param userId   用户id
+     * @param callBack 网络请求结果回调
+     */
     public static void follow(final String userId, final DataSource.CallBack<UserCard> callBack) {
         RemoteService service = NetWork.remote();
         Call<RspModel<UserCard>> call = service.userFollow(userId);
@@ -86,11 +113,8 @@ public class UserHelper {
                 RspModel<UserCard> rspModel = response.body();
                 if (rspModel.success()) {
                     UserCard card = rspModel.getResult();
-                    // 保存到本地数据库
-                    User user = card.build();
-                    user.save();
-                    // TODO 通知联系人列表刷新
-
+                    // 唤起进行保存操作
+                    Factory.getUserCenter().dispatch(card);
                     // 返回数据
                     callBack.onDataLoaded(card);
                 } else {
@@ -107,10 +131,11 @@ public class UserHelper {
 
     /**
      * 刷新联系人的操作，异步的
-     *
-     * @param callBack 网络请求结果回调
+     * 不需要Callback，直接存储到数据库
+     * 并通过数据库观察者进行通知界面更新
+     * 界面更新的时候进行对比，差异更新
      */
-    public static void refreshContacts(final DataSource.CallBack<List<UserCard>> callBack) {
+    public static void refreshContacts() {
         // 调用Retrofit对我们的网络请求做代理
         RemoteService service = NetWork.remote();
         // 得到一个Call<T>
@@ -121,17 +146,22 @@ public class UserHelper {
             public void onResponse(Call<RspModel<List<UserCard>>> call, Response<RspModel<List<UserCard>>> response) {
                 RspModel<List<UserCard>> rspModel = response.body();
                 if (rspModel.success()) {
-                    // 直接返回
-                    callBack.onDataLoaded(rspModel.getResult());
+                    // 拿到集合
+                    List<UserCard> cards = rspModel.getResult();
+                    if (cards == null || cards.size() == 0)
+                        return;
+//                    UserCard[] cards1 = CollectionUtil.toArray(cards, UserCard.class);
+                    UserCard[] cards1 = cards.toArray(new UserCard[0]);
+                    Factory.getUserCenter().dispatch(cards1);
                 } else {
                     // 错误的情况下
-                    Factory.decodeRspCode(rspModel, callBack);
+                    Factory.decodeRspCode(rspModel, null);
                 }
             }
 
             @Override
             public void onFailure(Call<RspModel<List<UserCard>>> call, Throwable t) {
-                callBack.onDataNotAvailable(R.string.data_network_error);
+                // nothing
             }
         });
     }
@@ -151,9 +181,8 @@ public class UserHelper {
             Response<RspModel<UserCard>> response = service.userFind(id).execute();
             UserCard card = response.body().getResult();
             if (card != null) {
-                // TODO 数据库存储但是没有通知
                 User user = card.build();
-                user.save();
+                Factory.getUserCenter().dispatch(card);
                 return user;
             }
         } catch (IOException e) {
@@ -187,31 +216,4 @@ public class UserHelper {
     }
 
 
-    private static class UserCardRspCallBack implements Callback<RspModel<UserCard>> {
-        final DataSource.CallBack<UserCard> callBack;
-
-        public UserCardRspCallBack(DataSource.CallBack<UserCard> callBack) {
-            this.callBack = callBack;
-        }
-
-        @Override
-        public void onResponse(Call<RspModel<UserCard>> call, Response<RspModel<UserCard>> response) {
-            RspModel<UserCard> rspModel = response.body();
-            if (rspModel.success()) {
-                UserCard userCard = rspModel.getResult();
-                // 进行数据库存储，UserCard转换成User
-                User user = userCard.build();
-                user.save();
-                callBack.onDataLoaded(userCard);
-            } else {
-                // 错误的情况下
-                Factory.decodeRspCode(rspModel, callBack);
-            }
-        }
-
-        @Override
-        public void onFailure(Call<RspModel<UserCard>> call, Throwable t) {
-            callBack.onDataNotAvailable(R.string.data_network_error);
-        }
-    }
 }

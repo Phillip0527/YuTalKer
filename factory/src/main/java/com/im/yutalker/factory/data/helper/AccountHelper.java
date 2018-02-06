@@ -94,10 +94,10 @@ public class AccountHelper {
                 AccountRspModel accountRspModel = rspModel.getResult();
                 // 获取我的信息
                 User user = accountRspModel.getUser();
+                DbHelper.save(User.class, user);
+                /*
                 // 第一种 直接保存
                 user.save();
-
-                /*
                 // 第二种 FlowManager保存 可以存储一个集合
                 FlowManager.getModelAdapter(User.class).save(user);
                 // 第三种 事务中保存 可以异步

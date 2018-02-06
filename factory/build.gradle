@@ -40,6 +40,9 @@ dependencies {
     compile "com.github.Raizlabs.DBFlow:dbflow-core:${rootProject.ext.dbflowVersion}"
     compile "com.github.Raizlabs.DBFlow:dbflow:${rootProject.ext.dbflowVersion}"
 
+    // 反射类工具
+    compile "net.qiujuer.genius:kit-reflect:$rootProject.ext.geniusVersion"
+
     implementation project(':common')
 
     testImplementation 'junit:junit:4.12'
