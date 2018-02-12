@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.im.yutalker.common.app.PresenterToolBarActivity;
 import com.im.yutalker.common.widget.PortraitView;
+import com.im.yutalker.factory.Factory;
 import com.im.yutalker.factory.model.dp.User;
 import com.im.yutalker.factory.presenter.contact.PersonalContract;
 import com.im.yutalker.factory.presenter.contact.PersonalPresenter;
@@ -44,6 +45,8 @@ public class PersonalActivity extends PresenterToolBarActivity<PersonalContract.
     TextView mFollowing;
     @BindView(R.id.btn_say_hello)
     Button mSayHello;
+    @BindView(R.id.btn_exit)
+    Button mExit;
 
     private MenuItem mFollowItem;
     private boolean mIsFollowUser = false;
@@ -104,6 +107,12 @@ public class PersonalActivity extends PresenterToolBarActivity<PersonalContract.
         MessageActivity.show(this, user);
     }
 
+    @OnClick(R.id.btn_exit)
+    void onExitClick() {
+        // 退出登录
+        Factory.logout();
+    }
+
     /**
      * 更改关注菜单状态
      */
@@ -141,6 +150,7 @@ public class PersonalActivity extends PresenterToolBarActivity<PersonalContract.
     @Override
     public void allowSayHello(boolean isAllow) {
         mSayHello.setVisibility(isAllow ? View.VISIBLE : View.GONE);
+        mExit.setVisibility(isAllow ? View.GONE : View.VISIBLE);
     }
 
     @Override

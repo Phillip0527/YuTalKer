@@ -1,5 +1,9 @@
 package com.im.yutalker.common.app;
 
+import android.app.*;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.annotation.StringRes;
 import android.view.Gravity;
@@ -9,6 +13,8 @@ import net.qiujuer.genius.kit.handler.Run;
 import net.qiujuer.genius.kit.handler.runable.Action;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Phillip on 2018/1/9.
@@ -18,10 +24,65 @@ import java.io.File;
 public class Application extends android.app.Application {
     private static Application instance;
 
+    // 所有activity
+    private List<Activity> activities = new ArrayList<>();
+
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
+
+        // activity生命周期的回调
+        registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
+            @Override
+            public void onActivityCreated(Activity activity, Bundle bundle) {
+                // 创建时添加到activity集合中
+                activities.add(activity);
+            }
+
+            @Override
+            public void onActivityStarted(Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityResumed(Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityPaused(Activity activity) {
+
+            }
+
+            @Override
+            public void onActivityStopped(Activity activity) {
+
+            }
+
+            @Override
+            public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+
+            }
+
+            @Override
+            public void onActivityDestroyed(Activity activity) {
+                // 销毁时从activity集合中删除
+                activities.remove(activity);
+            }
+        });
+    }
+
+    // 关闭所有activity
+    public void finishAll() {
+        for (Activity activity : activities) {
+            activity.finish();
+        }
+        showAccountActivity(this);
+    }
+
+    // 跳转到登录界面
+    protected void showAccountActivity(Context context){
     }
 
     /**
@@ -69,6 +130,7 @@ public class Application extends android.app.Application {
 
     /**
      * 获取声音文件的本地地址
+     *
      * @param isTmp 是否为缓存文件 True 每次返回的文件地址是一样的
      * @return 录音文件的地址
      */
@@ -95,6 +157,7 @@ public class Application extends android.app.Application {
 
     /**
      * 显示一个Toast
+     *
      * @param msg 字符串
      */
     public static void showToast(final String msg) {
@@ -105,7 +168,7 @@ public class Application extends android.app.Application {
             public void call() {
                 // 这里进行回调的时候一定就是主线程状态了
                 Toast toast = Toast.makeText(instance, msg, Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER,0,0);
+                toast.setGravity(Gravity.CENTER, 0, 0);
                 toast.show();
             }
         });

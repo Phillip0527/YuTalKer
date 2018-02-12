@@ -43,6 +43,11 @@ public class Account {
         Account.save(Factory.app());
     }
 
+    public static void setLogout() {
+        Account.token = "";
+        Account.save(Factory.app());
+    }
+
     /**
      * 获取推送Id
      *

@@ -30,7 +30,7 @@ public abstract class PresenterFragment<Presenter extends BaseContract.Presenter
         // 显示错误,优先使用占位布局
         if (placeHolderView != null) {
             placeHolderView.triggerError(str);
-        }else{
+        } else {
             Application.showToast(str);
         }
     }
@@ -46,5 +46,13 @@ public abstract class PresenterFragment<Presenter extends BaseContract.Presenter
     public void setPresenter(Presenter presenter) {
         // View中赋值Presenter
         mPresenter = presenter;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mPresenter != null) {
+            mPresenter.destroy();
+        }
     }
 }

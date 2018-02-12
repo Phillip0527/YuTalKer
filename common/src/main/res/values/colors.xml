@@ -28,7 +28,7 @@
 
     <!--提示颜色-->
     <color name="alertNormal">#4ce275</color>
-    <color name="alertImportant">#f98d2c</color>
+    <color name="alertImportant">@color/orange_500</color>
     <!--遮罩颜色-->
     <color name="maskChatHeader">@color/black_alpha_48</color>
     <!--导航栏icon遮罩颜色-->

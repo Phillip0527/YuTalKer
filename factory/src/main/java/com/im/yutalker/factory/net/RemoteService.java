@@ -4,7 +4,9 @@ import com.im.yutalker.factory.model.api.RspModel;
 import com.im.yutalker.factory.model.api.account.AccountRspModel;
 import com.im.yutalker.factory.model.api.account.LoginModel;
 import com.im.yutalker.factory.model.api.account.RegisterModel;
+import com.im.yutalker.factory.model.api.message.MsgCreateModel;
 import com.im.yutalker.factory.model.api.user.UserUpdateModel;
+import com.im.yutalker.factory.model.card.MessageCard;
 import com.im.yutalker.factory.model.card.UserCard;
 import com.im.yutalker.factory.model.dp.User;
 import com.im.yutalker.factory.persistence.Account;
@@ -92,4 +94,12 @@ public interface RemoteService {
      */
     @GET("user/{userId}")
     Call<RspModel<UserCard>> userFind(@Path("userId") String userId);
+
+    /**
+     * 网络请求一个发送消息的接口
+     *
+     * @return MessageCard
+     */
+    @POST("msg")
+    Call<RspModel<MessageCard>> msgPush(@Body MsgCreateModel model);
 }

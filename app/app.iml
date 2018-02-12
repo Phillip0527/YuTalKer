@@ -158,6 +158,7 @@
     <orderEntry type="library" scope="TEST" name="org.hamcrest:hamcrest-library:1.3@jar" level="project" />
     <orderEntry type="library" name="com.android.support:support-v4-26.1.0" level="project" />
     <orderEntry type="library" name="com.android.support:animated-vector-drawable-26.1.0" level="project" />
+    <orderEntry type="library" name="net.qiujuer.widget:airpanel-1.1.0" level="project" />
     <orderEntry type="library" name="com.github.Raizlabs.DBFlow:dbflow-core:4.2.4@jar" level="project" />
     <orderEntry type="library" name="net.qiujuer.genius:kit-handler-2.0.0" level="project" />
     <orderEntry type="library" name="com.github.bumptech.glide:glide:3.7.0@jar" level="project" />

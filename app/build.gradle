@@ -44,6 +44,8 @@ dependencies {
     compile "pub.devrel:easypermissions:$rootProject.ext.easyPMVersion"
     // 个推
     compile "com.getui:sdk:$rootProject.ext.getuiVersion"
+    // 空气面板
+    compile "net.qiujuer.widget:airpanel:$rootProject.ext.airpanelVersion"
 
     compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"

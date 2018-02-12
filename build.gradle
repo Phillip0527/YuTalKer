@@ -57,6 +57,7 @@ ext{
     getuiVersion = '2.9.3.0'
     // ORM框架(数据库关系映射成对象)
     dbflowVersion = "4.2.4"
+    airpanelVersion = "1.1.0"
 
 
 }

@@ -29,7 +29,7 @@ public abstract class BaseDbRepository<Data extends BaseDbModel<Data>> implement
     private SuccessCallBack<List<Data>> callback;
     // 缓存起来
     private final List<Data> dataList = new LinkedList<>();
-    // 当前泛型对应的真是的class信息
+    // 当前泛型对应的真实的class信息
     private Class<Data> dataClass;
 
     @SuppressWarnings("unchecked")

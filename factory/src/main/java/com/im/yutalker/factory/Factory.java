@@ -139,7 +139,6 @@ public class Factory {
                 decodeRspCode(R.string.data_rsp_error_parameters_exist_name, callback);
                 break;
             case RspModel.ERROR_ACCOUNT_TOKEN:
-                Application.showToast(R.string.data_rsp_error_account_token);
                 instance.logout();
                 break;
             case RspModel.ERROR_ACCOUNT_LOGIN:
@@ -170,8 +169,10 @@ public class Factory {
     /**
      * 收到退出的消息需要进行账户退出重新登录
      */
-    private void logout() {
-
+    public static void logout() {
+        Application.showToast(R.string.data_rsp_error_account_token);
+        Account.setLogout();
+        app().finishAll();
     }
 
     /**

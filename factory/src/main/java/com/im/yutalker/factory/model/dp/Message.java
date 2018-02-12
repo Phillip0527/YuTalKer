@@ -50,12 +50,15 @@ public class Message extends BaseDbModel<Message> implements Serializable {
     @Column
     private int status;// 当前消息的状态
 
+    // stubbedRelationship = true 相当于懒加载：刚开始只有id有值，其他属性都没有值，用的时候必须load()
     @ForeignKey(tableClass = Group.class, stubbedRelationship = true)
     private Group group;// 接收者群外键
 
+    // stubbedRelationship = true 相当于懒加载：刚开始只有id有值，其他属性都没有值，用的时候必须load()
     @ForeignKey(tableClass = User.class, stubbedRelationship = true)
     private User sender;// 发送者 外键
 
+    // stubbedRelationship = true 相当于懒加载：刚开始只有id有值，其他属性都没有值，用的时候必须load()
     @ForeignKey(tableClass = User.class, stubbedRelationship = true)
     private User receiver;// 接收者人外键
 

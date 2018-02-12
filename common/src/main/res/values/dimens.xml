@@ -3,6 +3,9 @@
     <!--头像高度-->
     <dimen name="portraitMinSize">@dimen/len_36</dimen>
     <dimen name="portraitSize">@dimen/len_40</dimen>
+    <dimen name="portraitSize_44">@dimen/len_44</dimen>
+    <dimen name="portraitSize_48">@dimen/len_48</dimen>
+    <dimen name="portraitSize_56">@dimen/len_56</dimen>
     <dimen name="portraitMaxSize">@dimen/len_64</dimen>
 
     <!--状态栏高度-->

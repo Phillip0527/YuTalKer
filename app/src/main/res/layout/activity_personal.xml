@@ -14,7 +14,7 @@
         android:layout_marginBottom="@dimen/len_48"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
-        android:src="@drawable/default_portrait"
+        android:src="@drawable/default_banner_personal"
         app:layout_constraintBottom_toTopOf="@+id/guideline1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -39,6 +39,7 @@
         android:layout_margin="@dimen/len_16"
         android:ellipsize="end"
         android:text="@string/app_name"
+        android:textColor="@color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
@@ -119,6 +120,27 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        tools:visibility="visible" />
+
+    <net.qiujuer.genius.ui.widget.Button
+        android:id="@+id/btn_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/len_28"
+        android:background="@drawable/sel_btn_bg_accent_44"
+        android:gravity="center"
+        android:minWidth="@dimen/len_156"
+        android:text="@string/btn_exit"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:gTouchColor="@color/white_alpha_48"
+        app:gTouchCornerRadius="22dp"
+        app:gTouchEffect="ripple"
+        app:layout_constraintBottom_toTopOf="@+id/btn_say_hello"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:visibility="visible" />
 
     <android.support.constraint.Guideline
