@@ -9,6 +9,8 @@ import com.im.yutalker.common.app.Activity;
 import com.im.yutalker.common.app.Fragment;
 import com.im.yutalker.factory.model.Author;
 import com.im.yutalker.factory.model.dp.Group;
+import com.im.yutalker.factory.model.dp.Message;
+import com.im.yutalker.factory.model.dp.Session;
 import com.im.yutalker.push.R;
 import com.im.yutalker.push.fragments.message.ChatGroupFragment;
 import com.im.yutalker.push.fragments.message.ChatUserFragment;
@@ -23,6 +25,21 @@ public class MessageActivity extends Activity {
 
     private String mReceiverId;
     private boolean mIsGroup;
+
+    /**
+     * 通过Session发起聊天
+     *
+     * @param context 上下文
+     * @param session Session
+     */
+    public static void show(Context context, Session session) {
+        if (context == null || session == null || TextUtils.isEmpty(session.getId()))
+            return;
+        Intent intent = new Intent(context, MessageActivity.class);
+        intent.putExtra(KEY_RECEIVER_ID, session.getId());
+        intent.putExtra(KEY_RECEIVER_IS_GROUP, session.getReceiverType() == Message.RECEIVER_TYPE_GROUP);
+        context.startActivity(intent);
+    }
 
     /**
      * 显示一个人的聊天记录
