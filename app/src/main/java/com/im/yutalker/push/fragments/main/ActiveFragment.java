@@ -13,6 +13,7 @@ import com.im.yutalker.common.widget.PortraitView;
 import com.im.yutalker.common.widget.recycler.RecyclerAdapter;
 import com.im.yutalker.factory.model.dp.Session;
 import com.im.yutalker.factory.presenter.message.SessionContract;
+import com.im.yutalker.factory.presenter.message.SessionPresenter;
 import com.im.yutalker.push.R;
 import com.im.yutalker.push.activities.MessageActivity;
 import com.im.yutalker.utils.DateTimeUtil;
@@ -79,7 +80,7 @@ public class ActiveFragment extends PresenterFragment<SessionContract.Presenter>
 
     @Override
     protected SessionContract.Presenter initPresenter() {
-        return null;
+        return new SessionPresenter(this);
     }
 
     @Override

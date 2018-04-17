@@ -1,12 +1,9 @@
 package com.im.yutalker.factory.model.dp;
 
-import com.im.yutalker.factory.utils.DiffUiDataCallback;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.ForeignKey;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
-import com.raizlabs.android.dbflow.structure.BaseModel;
-
 
 import java.util.Date;
 import java.util.Objects;
@@ -185,8 +182,11 @@ public class Session extends BaseDbModel<Session> {
         return identify;
     }
 
+    /**
+     * 刷新会话对应的信息为当前Message的最新状态
+     */
     public void refreshToNow() {
-        // TODO 刷新会话对应的信息为当前message的最新状态
+        // TODO
     }
 
 

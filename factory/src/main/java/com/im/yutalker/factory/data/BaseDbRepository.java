@@ -4,10 +4,7 @@ import android.support.annotation.NonNull;
 
 import com.im.yutalker.factory.data.helper.DbHelper;
 import com.im.yutalker.factory.model.dp.BaseDbModel;
-import com.im.yutalker.factory.model.dp.User;
-import com.im.yutalker.factory.persistence.Account;
 import com.im.yutalker.utils.CollectionUtil;
-import com.raizlabs.android.dbflow.structure.BaseModel;
 import com.raizlabs.android.dbflow.structure.database.transaction.QueryTransaction;
 
 import net.qiujuer.genius.kit.reflect.Reflector;
@@ -28,7 +25,7 @@ public abstract class BaseDbRepository<Data extends BaseDbModel<Data>> implement
     // 和presenter交互的回调
     private SuccessCallBack<List<Data>> callback;
     // 缓存起来
-    private final List<Data> dataList = new LinkedList<>();
+    protected final LinkedList<Data> dataList = new LinkedList<>();
     // 当前泛型对应的真实的class信息
     private Class<Data> dataClass;
 
