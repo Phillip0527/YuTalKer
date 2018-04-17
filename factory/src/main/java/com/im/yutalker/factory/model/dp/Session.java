@@ -1,5 +1,10 @@
 package com.im.yutalker.factory.model.dp;
 
+import android.text.TextUtils;
+
+import com.im.yutalker.factory.data.helper.GroupHelper;
+import com.im.yutalker.factory.data.helper.MessageHelper;
+import com.im.yutalker.factory.data.helper.UserHelper;
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.ForeignKey;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
@@ -186,7 +191,65 @@ public class Session extends BaseDbModel<Session> {
      * 刷新会话对应的信息为当前Message的最新状态
      */
     public void refreshToNow() {
-        // TODO
+        Message message;
+        if (receiverType == Message.RECEIVER_TYPE_GROUP) {
+            // 刷新当前对应的群的相关信息
+            message = MessageHelper.findLastWithGroup(id);
+            if (message == null) {
+                if (TextUtils.isEmpty(picture) || TextUtils.isEmpty(this.title)) {
+                    // 本地查询群
+                    Group group = GroupHelper.findFromLocal(id);
+                    if (group != null) {
+                        this.picture = group.getPicture();
+                        this.title = group.getName();
+                    }
+                }
+                this.message = null;
+                this.content = "";
+                this.modifyAt = new Date(System.currentTimeMillis());
+            } else {
+                // 本地有最后一条聊天记录
+                if (TextUtils.isEmpty(picture) || TextUtils.isEmpty(this.title)) {
+                    // 如果没有基本信息，直接从message中load群信息
+                    Group group = message.getGroup();
+                    group.load();// 懒加载的问题
+                    this.picture = group.getPicture();
+                    this.title = group.getName();
+                }
+                this.message = message;
+                this.content = message.getSampleContent();
+                this.modifyAt = message.getCreateAt();
+            }
+        } else {
+            // 和人的聊天
+            message = MessageHelper.findLastWithUser(id);
+            if (message == null) {
+                // 我和他的聊天信息已经删除了
+                if (TextUtils.isEmpty(picture) || TextUtils.isEmpty(this.title)) {
+                    // 本地查询人
+                    User user = UserHelper.findFromLocal(id);
+                    if (user != null) {
+                        this.picture = user.getPortrait();
+                        this.title = user.getName();
+                    }
+                }
+                this.message = null;
+                this.content = "";
+                this.modifyAt = new Date(System.currentTimeMillis());
+            } else {
+                // 我和他有聊天消息
+                if (TextUtils.isEmpty(picture) || TextUtils.isEmpty(this.title)) {
+                    // 如果没有基本信息，直接从message中load群信息
+                    User other = message.getOther();
+                    other.load();// 懒加载的问题
+                    this.picture = other.getPortrait();
+                    this.title = other.getName();
+                }
+                this.message = message;
+                this.content = message.getSampleContent();
+                this.modifyAt = message.getCreateAt();
+            }
+        }
     }
 
 

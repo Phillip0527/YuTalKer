@@ -24,7 +24,7 @@ public class SessionRepository extends BaseDbRepository<Session> implements Sess
         // 数据库查询
         SQLite.select()
                 .from(Session.class)
-                .orderBy(Session_Table.modifyAt, true)
+                .orderBy(Session_Table.modifyAt, false)
                 .limit(100)
                 .async()
                 .queryListResultCallback(this)
